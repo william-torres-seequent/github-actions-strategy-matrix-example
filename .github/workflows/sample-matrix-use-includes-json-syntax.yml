@@ -14,10 +14,11 @@ jobs:
   job2:
     needs: job1
     runs-on: ubuntu-latest
-    strategy:
-      matrix: ${{ fromJson(needs.job1.outputs.matrix) }}
+    #strategy:
+      #matrix: ${{ fromJson(needs.job1.outputs.matrix) }}
     steps:
-    - run: echo Run ${{ matrix.run }}
+    #- run: echo Run ${{ matrix.run }}
+    - run: echo ${{ needs.job1.outputs.matrix }}
     - run: date
     - run: sleep 1
     - run: date
